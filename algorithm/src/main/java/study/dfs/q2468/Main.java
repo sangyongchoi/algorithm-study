@@ -3,8 +3,6 @@ package study.dfs.q2468;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -23,7 +21,7 @@ public class Main {
             }
         }
 
-        Queue<Integer> queue = new PriorityQueue<>(((o1, o2) -> Integer.compare(o2,o1)));
+        int result = 0 ;
         for (int k = 0; k < max; k++) {
             int[][] tmp = new int[size][size];
             int count =0;
@@ -45,10 +43,10 @@ public class Main {
                 }
             }
 
-            queue.offer(count);
+            result = Math.max(result, count);
         }
 
-        System.out.println(queue.poll());
+        System.out.println(result);
     }
 
     private static void dfs(int[][] node, int i, int j, int size) {
